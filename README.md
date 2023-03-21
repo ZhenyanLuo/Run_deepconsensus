@@ -35,17 +35,22 @@ PBS_setting="
 #PBS -l storage=scratch/xf3+gdata/xf3
 #PBS -M
 set -xue
-source /home/106/zl1602/.bashrc
+source /home/106/${USER}/.bashrc
 source /g/data/xf3/miniconda/etc/profile.d/conda.sh 
+conda activate deepconsensus
 "
-n=1
-n_total=500
 function to_shard_id {
   # ${1}: n=1-based counter
   # ${2}: n_total=1-based count
   echo "$( printf %03g "${1}")-of-$(printf "%03g" "${2}")"
 }
+###Parameter
+n_total=500
+bam_file=GM1_PL100274085-1_C01.subreads.bam
+for ((n=1;n<=10;n++));
+do
 shard_id="$(to_shard_id "${n}" "${n_total}")"
-ccs_cmd="ccs --min-rq=0.88 -j 48 --chunk="${n}"/"${n_total}" n1000.subreads.bam "${shard_id}.ccs.bam""
-
+ccs_cmd="ccs --min-rq=0.88 -j 48 --chunk="${n}"/"${n_total}" ${bam_file} ${bam_file%.subreads.bam}_${shard_id}.ccs.bam"
+echo -e "${PBS_setting}\n${ccs_cmd}" >"$shard_id"_ccs.pbs
+done
 ```
