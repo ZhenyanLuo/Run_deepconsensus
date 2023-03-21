@@ -34,7 +34,6 @@ PBS_setting="
 #PBS -l storage=scratch/xf3+gdata/xf3
 #PBS -M
 set -xue
-source /home/106/${USER}/.bashrc
 source /g/data/xf3/miniconda/etc/profile.d/conda.sh 
 conda activate deepconsensus
 cd /g/data/xf3/${USER}/Apsidii_2023
@@ -68,7 +67,6 @@ done
 #PBS -l storage=scratch/xf3+gdata/xf3
 #PBS -M
 set -xue
-source /home/106/${USER}/.bashrc
 source /g/data/xf3/miniconda/etc/profile.d/conda.sh 
 conda activate deepconsensus
 #Change to file name of ccs output
@@ -90,7 +88,6 @@ PBS_setting="
 #PBS -l storage=scratch/xf3+gdata/xf3
 #PBS -M
 set -xue
-source /home/106/${USER}/.bashrc
 source /g/data/xf3/miniconda/etc/profile.d/conda.sh 
 conda activate deepconsensus
 cd /g/data/xf3/${USER}/Apsidii_2023
@@ -128,7 +125,6 @@ PBS_setting="
 #PBS -l storage=scratch/xf3+gdata/xf3
 #PBS -M
 set -xue
-source /home/106/${USER}/.bashrc
 source /g/data/xf3/miniconda/etc/profile.d/conda.sh 
 conda activate deepconsensus
 cd /g/data/xf3/${USER}/Apsidii_2023
