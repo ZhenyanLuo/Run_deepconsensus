@@ -12,4 +12,5 @@ echo -e $actc_cmd >>actc.loop.sh
 done
 ```
 
-Run bash actc.loop.sh
+##Run 
+bash actc.loop.sh
