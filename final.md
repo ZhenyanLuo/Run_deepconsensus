@@ -42,7 +42,7 @@ pbindex D01.subreads.bam
 
 ```
 n_total=500
-subreads_path="/g/data/xf3/zl1602/Apsidii_2023/C01/C01.subreads.bam"
+subreads_path="/g/data/xf3/zl1602/Apsidii_2023/D01/D01.subreads.bam"
 for ((n=1;n<=${n_total};n++));
 do
 function to_shard_id {
