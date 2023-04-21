@@ -274,8 +274,8 @@ shard_id="$(to_shard_id "${n}" "${n_total}")"
 PBS_setting="#!/bin/bash
 #PBS -q normal
 #PBS -l mem=10GB
-#PBS -l walltime=0:30:00
-#PBS -l ncpus=16
+#PBS -l walltime=2:00:00
+#PBS -l ncpus=3
 #PBS -l wd
 #PBS -l storage=scratch/xf3+gdata/xf3
 #PBS -P xf3
@@ -285,7 +285,7 @@ conda activate deepconsensus
 cd /g/data/xf3/zl1602/Apsidii_2023/D01/D01_${shard_id}
 "
 actc_cmd="
-actc -j 16 ${subreads_path} D01_${shard_id}.ccs.bam D01_${shard_id}.subreads_to_ccs.bam
+actc ${subreads_path} D01_${shard_id}.ccs.bam D01_${shard_id}.subreads_to_ccs.bam
 pbindex D01_${shard_id}.subreads_to_ccs.bam
 "
 echo -e "${PBS_setting}\n${actc_cmd}" >D01_${shard_id}/D01_${shard_id}.actc.pbs.sh
